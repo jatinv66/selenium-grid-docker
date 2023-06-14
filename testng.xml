@@ -4,11 +4,11 @@
 
     <test name="Test_1">
         <classes>
-                        <class name="tests.tests">
-                            <methods>
-                                <include name="testcase"></include>
-                            </methods>
-                        </class>
+            <class name="tests.tests">
+                <methods>
+                    <include name="testcase"></include>
+                </methods>
+            </class>
         </classes>
     </test>
 
