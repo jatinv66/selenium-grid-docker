@@ -12,10 +12,10 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class tests {
-    public static WebDriver driver;
+
     @Test
     public static void testcase() throws MalformedURLException {
-
+        WebDriver driver=null;
         ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--remote-allow-origins=*");
         try{
@@ -24,26 +24,34 @@ public class tests {
         }catch(Exception e){
             e.printStackTrace();
         }
-        
+
         driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 //launching the specified URL
         driver.get("https://www.google.com/");
+//        driver.quit();
+        System.out.println("ghgjhg");
     }
 
-//    @Test
-//    public static void testcase1(){
-//
-//        System.setProperty("webdriver.chrome.drive","/Users/jatinverma/Desktop/selenium-testng-docker/chromedriver");
-//
-//        ChromeOptions options = new ChromeOptions();
+    @Test
+    public static void testcase1(){
+        WebDriver driver=null;
+        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--remote-allow-origins=*");
-//        ChromeDriver driver = new ChromeDriver(options);
-//        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//
-////launching the specified URL
-//        driver.get("https://www.google.com/");
-//    }
+        try{
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options){};
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//launching the specified URL
+        driver.get("https://www.google.com/");
+//        driver.quit();
+        System.out.println("ghg");
+    }
 }
